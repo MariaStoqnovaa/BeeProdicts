@@ -1,0 +1,62 @@
+﻿@model Product
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<form method="post" asp-action="Create" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" placeholder="Name">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <input asp-for="Price" class="form-control" placeholder="Price">
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <input asp-for="Description" class="form-control" placeholder="Description">
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ColorID" class="control-lable"></label>
+        <select asp-for="ColorID" asp-items="ViewBag.Colors" class="form-control">
+            <option>--Select--</option>
+        </select>
+        <span asp-validation-for="ColorID" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FinishID">FinishID</label>
+        <input asp-for="FinishID" class="form-control" placeholder="FinishID">
+        <span asp-validation-for="FinishID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SizeID">SizeID</label>
+        <input asp-for="SizeID" class="form-control" placeholder="SizeID">
+        <span asp-validation-for="SizeID" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+    <label asp-for="Image">Image</label>
+    <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+    <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    
+
+   @* <div class="form-group">
+        <label asp-for="Image" class="control-label"></label>
+        <input asp-for="Image" class="form-control" />
+    </div>*@
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
