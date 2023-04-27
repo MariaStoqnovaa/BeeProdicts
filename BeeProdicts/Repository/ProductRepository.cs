@@ -24,21 +24,16 @@ namespace BeeProdicts.Repository
         {
             //_context.Add(product);
             //return Save();
-
-            var newProduct = new Product()
+            try
             {
-                Id = product.Id,
-                Name = product.Name,
-                Description = product.Description,
-                ColorID = product.ColorID,
-                FinishID = product.FinishID,
-                SizeID = product.SizeID,
-                Image = product.Image,
-            };
-
-            _context.Add(product);
+                _context.Add(product);
+                _context.SaveChanges();
+                return 0;
+            } catch(Exception ex)
+            {
+                return 1;
+            }
            
-            return newProduct.Id;
         }
 
         public async Task<Color> AddColor (int colorName)
@@ -60,6 +55,14 @@ namespace BeeProdicts.Repository
             {
                 FinishID = c.FinishID,
                 FinishName = c.FinishName
+            }).ToListAsync();
+        }
+        public async Task<List<Size>> GetSize()
+        {
+            return await _context.Size.Select(c => new Size()
+            {
+                SizeID = c.SizeID,
+                SizeName = c.SizeName
             }).ToListAsync();
         }
 
