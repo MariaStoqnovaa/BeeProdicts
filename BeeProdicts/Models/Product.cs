@@ -16,12 +16,16 @@ namespace BeeProdicts.Models
         [ForeignKey("FinishID")]
         public int FinishID { get; set; }
 
+        public Finish Finish { get; set; }
+
 
         [ForeignKey("SizeID")]
         public int SizeID { get; set; }
+        public Size Size { get; set; }
 
         [ForeignKey("ColorID")]
         public int ColorID{get;set;}
+        public Color Color { get; set; }
         public string Image { get; set; }
 
     }
