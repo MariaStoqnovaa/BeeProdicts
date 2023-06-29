@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeeProdicts.Models
 {
-    public class AppUser 
+    public class AppUser : IdentityUser
     {
         [Key]
         public string Id { get; set; }

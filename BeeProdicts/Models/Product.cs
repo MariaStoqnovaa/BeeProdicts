@@ -15,9 +15,7 @@ namespace BeeProdicts.Models
 
         [ForeignKey("FinishID")]
         public int FinishID { get; set; }
-
         public Finish Finish { get; set; }
-
 
         [ForeignKey("SizeID")]
         public int SizeID { get; set; }
@@ -27,6 +25,10 @@ namespace BeeProdicts.Models
         public int ColorID{get;set;}
         public Color Color { get; set; }
         public string Image { get; set; }
+
+        [ForeignKey("TypeId")]
+        public int? TypeId { get; set; }
+        public TypeProduct Type { get; set; }
 
     }
 }

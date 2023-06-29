@@ -1,0 +1,49 @@
+﻿@model DetailsViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<head>
+    <link rel="stylesheet" href="~/css/DetailPage.css" asp-append-version="true" />
+</head>
+
+
+<div class="main-container">
+
+    <p><h3>Page Heading Secondary Text</h3></P>
+
+</div>
+       
+    
+    <section class="bg-white space-sm">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <img alt="Image" src="@Model.product.Image"  />
+                </div>
+               
+
+                <div class="col-md-4 ">                  
+                        <h3 class="my-3">@Model.product.Name</h3>
+                        <p>@Model.product.Description</p>                       
+
+                           <label class="control-lable">Size</label>
+                            <select asp-for="@Model.product.SizeID" asp-items="@Model.Sizes" class="form-control">
+                              <option>--Select--</option>
+                            </select>
+                            
+                            <label class="control-lable">Finish</label>
+                            <select asp-for="@Model.product.FinishID" asp-items="@Model.Finishs" class="form-control">
+                              <option>--Select--</option>
+                            </select>
+
+                            <label class="control-lable">Color</label>
+                            <select asp-for="@Model.product.ColorID" asp-items="@Model.Colors" class="form-control">
+                              <option>--Select--</option>
+                            </select>
+                </div>              
+            </div>          
+        </div>     
+    </section>    

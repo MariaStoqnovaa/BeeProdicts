@@ -6,6 +6,9 @@
     <title>@ViewData["Title"] - BeeProdicts</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+   @* <link rel="stylesheet" href="~/css/ShopAll.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="~/css/DetailPage.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/HomePage.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BeeProdicts.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -21,40 +24,48 @@
                     @*topNav*@
                     <ul class="navbar-nav ms-auto">
 
-                        <li class="nav-item">
-                            <a class="nav-link" style="color: white;" asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="OurStory">OUR STORY</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Partners">PARTNERS</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Recipe">RECIPE</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="" asp-controller="Home" asp-action="Contact">CONTACT</a>
-                        </li>
-
                         <div class="dropdown">
-                            <button class="dropbtn">Shop</button>
+                            <button class="dropbtn">BLOG</button>
                             <div class="dropdown-content">
-                                <a class="dropdown-item" asp-controller="Product" asp-action="Index">Create</a>
-                                <a class="dropdown-item" asp-controller="Product" asp-action="ShopAll">Shop All</a>
-                                <a class="dropdown-item" asp-controller="Product" asp-action="Foundation">Foundation</a>
-                                <a class="dropdown-item" asp-controller="Product" asp-action="Frames">Frames</a>
-                                <a class="dropdown-item" asp-controller="Product" asp-action="Hives">Hives Bodies</a>
+                                <a class="dropdown-item" asp-controller="BlogPosts" asp-action="Index">Create</a>
+                                <a class="dropdown-item" asp-controller="BlogPosts" asp-action="HomeBlog">Home Blog</a>
                             </div>
                         </div>
 
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Partner" asp-action="Index">PARTNERS</a>
+                        </li>
+                        
 
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-controller="Contact" asp-action="Index">CONTACT</a>
+                        </li>
+
+                        <div class="dropdown">
+                            <button class="dropbtn">Supplies</button>
+                            <div class="dropdown-content">
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Index">Create</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="ShopAll">Shop All</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Types" asp-route-id="1">Foundation</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Types" asp-route-id="2">Frames</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Types" asp-route-id="3">Hives Bodies</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Types" asp-route-id="4">Accessories</a>
+                                <a class="dropdown-item" asp-controller="ProductFromBee" asp-action="Index">Create</a>
+                              @*  <a class="dropdown-item" asp-controller="ProductFromBee" asp-action="ShopAllHoney">Shop All</a>*@
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Types" asp-route-id="5">Honey</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Types" asp-route-id="6">Propolis</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Types" asp-route-id="7">Bee Wax</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Types" asp-route-id="8">Candles</a>
+                                <a class="dropdown-item" asp-controller="Product" asp-action="Types" asp-route-id="9">Jar</a>
+                            </div>
+                        </div>
                     </ul>
                 </div>
+
+                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial.cshtml"></partial>
+                </div>
+
             </div>
         </nav>
     </header>

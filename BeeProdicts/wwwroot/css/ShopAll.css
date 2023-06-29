@@ -1,0 +1,70 @@
+﻿body {
+    background-color: white;
+}
+
+.my-bth {
+    display: inline-block;
+    padding: 16px 45px;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    border-collapse: collapse;
+    border: 2px solid;
+    border-color: white;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif
+}
+
+.my-bth:hover {
+
+    background-color: white;
+}
+
+product-information {
+    text-decoration: none;
+    font-family: 'Times New Roman';
+}
+
+.card-img-top {
+    height: 300px;
+    width: 350px;
+    object-fit: cover;
+}
+
+.price {
+    font-family: 'Times New Roman';
+    font-weight: bold;
+}
+
+.btn-group {
+
+    margin-left: 160px;
+    margin-top: 20px;
+    height: 10px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    /* Styles for small screens*/
+    .col-sm-6 {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Styles for medium screens*/
+    .col-md-4 {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    /* Styles for large screens*/
+    .col-lg-3 {
+        width: 33.33%;
+    }
+}

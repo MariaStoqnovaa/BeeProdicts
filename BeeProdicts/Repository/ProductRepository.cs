@@ -29,14 +29,16 @@ namespace BeeProdicts.Repository
                 _context.Add(product);
                 _context.SaveChanges();
                 return 0;
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 return 1;
             }
-           
+
         }
 
-        public async Task<Color> AddColor (int colorName)
+
+        public async Task<Color> AddColor(int colorName)
         {
             return await _context.Color.FirstOrDefaultAsync(c => c.ColorID == colorName);
         }
@@ -49,7 +51,7 @@ namespace BeeProdicts.Repository
                 ColorName = c.ColorName
             }).ToListAsync();
         }
-          public async Task<List<Finish>> GetFinish()
+        public async Task<List<Finish>> GetFinish()
         {
             return await _context.Finish.Select(c => new Finish()
             {
@@ -66,11 +68,29 @@ namespace BeeProdicts.Repository
             }).ToListAsync();
         }
 
+        public async Task<List<TypeProduct>> GetTypes()
+        {
+            return await _context.TypesSupplies.Select(c => new TypeProduct()
+            {
+                TypeId = c.TypeId,
+                Name = c.Name
+            }).ToListAsync();
+        }
 
         public bool Save()
         {
             var saved = _context.SaveChanges();
             return saved > 0 ? true : false;
+        }
+
+        public async Task<Product> GetByIdAsync(int id)
+        {
+            return await _context.Products.FirstOrDefaultAsync(i => i.Id == id);
+        }
+
+        public async Task<IEnumerable<Product>> GetAllByID(int id)
+        {
+            return await _context.Products.Where(p => p.TypeId == id).ToListAsync();
         }
     }
 }

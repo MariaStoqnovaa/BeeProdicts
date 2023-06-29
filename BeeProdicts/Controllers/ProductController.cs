@@ -1,4 +1,5 @@
-﻿using BeeProdicts.Interface;
+﻿using BeeProdicts.Data;
+using BeeProdicts.Interface;
 using BeeProdicts.Models;
 using BeeProdicts.Repository;
 using Grpc.Core;
@@ -27,8 +28,9 @@ namespace BeeProdicts.Controllers
             var colors = new SelectList(await _context.GetColor(), "ColorID", "ColorName");
             var finish = new SelectList(await _context.GetFinish(), "FinishID", "FinishName");
             var size = new SelectList(await _context.GetSize(), "SizeID", "SizeName");
+            var type = new SelectList(await _context.GetTypes(), "TypeId", "Name");
 
-            var viewModel = new CreateProductViewModel(colors, finish, size);
+            var viewModel = new CreateProductViewModel(colors, finish, size,type);
 
             return View(viewModel);
         }
@@ -37,25 +39,18 @@ namespace BeeProdicts.Controllers
             IEnumerable<Product> products = await _context.GetAll();
             return View(products);
         }
-        public IActionResult Foundation()
+        public async Task<IActionResult> Types(int id)
         {
-            return View();
-        }
-        public IActionResult Frames()
-        {
-            return View();
-        }
 
-        public IActionResult Hives()
-        {
-            return View();
+            IEnumerable<Product> products = await _context.GetAllByID(id);
+            return View(products);
         }
+      
 
         public async Task<IActionResult> Create(CreateProductViewModel productViewModel)
         {
-
-
             string path = Path.Combine(_webHostEnvironment.WebRootPath, "uploadFolder", productViewModel.Image.FileName);
+            
             using (var stream = new FileStream(path, FileMode.Create))
             {
                 productViewModel.product.Image = "/uploadfolder/" + productViewModel.Image.FileName;
@@ -64,10 +59,6 @@ namespace BeeProdicts.Controllers
 
             int id = await _context.Add(productViewModel.product);
             return RedirectToAction("ShopAll");
-
-
         }
-
     }
-
 }
